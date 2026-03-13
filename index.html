@@ -12,16 +12,16 @@
         <a href="#" class="logo"><span>Ryan Shuma</span></a>
         <ul class="nav-links">
             <li>
-                <a href="about">About</a>
+                <a href="#about">About</a>
             </li>
             <li>
-                <a href="experience">Experience</a>
+                <a href="#experience">Experience</a>
             </li>
             <li>
-                <a href="projects">Projects</a>
+                <a href="#projects">Projects</a>
             </li>
             <li>
-                <a href="contacts">Contacts</a>
+                <a href="#contact">Contacts</a>
             </li>
         </ul>
         <i class="fa-solid fa-bars" id="menu-icon"></i>
@@ -30,7 +30,7 @@
 
     <section id="about" class = "about">
         <div class="about-container">
-            <img src="image.jpg" alt="">
+            <img src="image.jpeg" alt="">
             <div class="info-box">
                 <div class="text">
                     <h3>Hi I'm</h3>
@@ -50,6 +50,116 @@
 
         </div>
     </section>
+    <section id="experience" class="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-info">
+            <div class="grid">
+                <div class="grid-card">
+                    <i class="fa-solid fa-code"></i>
+                    <span>frontend development</span>
+                    <h3>entry level</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi consequuntur reiciendis veritatis sequi necessitatibus! Dignissimos eveniet nesciunt perferendis iste placeat nisi et libero, laborum totam consectetur voluptas magni itaque commodi.</p>
+                </div>
+                <div class="grid-card">
+                    <i class="fa-brands fa-react"></i>
+                    <span>frontend development</span>
+                    <h3>entry level</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi consequuntur reiciendis veritatis sequi necessitatibus! Dignissimos eveniet nesciunt perferendis iste placeat nisi et libero, laborum totam consectetur voluptas magni itaque commodi.</p>
+                </div>
+                <div class="grid-card">
+                    <i class="fa-regular fa-file-code"></i>
+                    <span>frontend development</span>
+                    <h3>entry level</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi consequuntur reiciendis veritatis sequi necessitatibus! Dignissimos eveniet nesciunt perferendis iste placeat nisi et libero, laborum totam consectetur voluptas magni itaque commodi.</p>
+                </div>
+            </div>
+            <img src="image.jpeg" alt="">
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="proj1.png" alt="">
+                <h3>Forms project with Ricosam</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis tempore repellat iste expedita asperiores fugiat vitae eaque excepturi nesciunt aperiam facere odit ad unde deleniti, temporibus tempora laudantium aut omnis.</p>
+                <div class="btn-group">
+                    <div class="btn">Live Demo</div>
+                    <div class="btn">Github</div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="proj2.png" alt="">
+                <h3>Portfolio Project</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis tempore repellat iste expedita asperiores fugiat vitae eaque excepturi nesciunt aperiam facere odit ad unde deleniti, temporibus tempora laudantium aut omnis.</p>
+                <div class="btn-group">
+                    <div class="btn">Live Demo</div>
+                    <div class="btn">Github</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p class="contact-subtitle">Have a project in mind? Send me a message.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/xkoqzglw" method="POST">
+        
+        <div class="form-group">
+            <input 
+                type="text" 
+                name="name"
+                placeholder="Your Name" 
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <input 
+                type="email" 
+                name="email"
+                placeholder="Your Email" 
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <textarea 
+                name="message" 
+                placeholder="Your message..." 
+                rows="5"
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Send Message
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+    </form>
+</section>
+
+    <footer>
+        <ul>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+        <p class="copyright">@ RMS| Ryan Shuma</p>
+    </footer>
 
 
     <script src="script.js"></script>

@@ -40,6 +40,9 @@
     </header>
 
     <section id="about" class = "about">
+        <button class="peek-btn" data-section="about">
+    &lt;/&gt;
+</button>
         <div class="about-container">
             <img src="image.jpeg" alt="Ryan Shuma- Fullstack developer">
             <div class="info-box">
@@ -66,6 +69,9 @@
         </div>
     </section>
     <section id="experience" class="experience">
+        <button class="peek-btn" data-section="experience">
+    &lt;/&gt;
+</button>
         <h2 class="section-title">Experience</h2>
         <div class="experience-info">
             <div class="grid">
@@ -99,6 +105,9 @@
     </section>
 
    <section id="projects" class="projects">
+    <button class="peek-btn" data-section="projects">
+    &lt;/&gt;
+</button>
     <h2 class="section-title">Projects</h2>
     <div class="project-grid">
 
@@ -148,6 +157,9 @@
 </section>
 
     <section id="contact" class="contact">
+        <button class="peek-btn" data-section="contact">
+    &lt;/&gt;
+</button>
     <h2 class="section-title">Contact Me</h2>
     <p class="contact-subtitle">
          Got a project, an idea, or just want to connect? 
@@ -190,7 +202,7 @@
         </a>
      <a href="#contact">
     <i class="fa-regular fa-envelope"></i>
-</a>>
+</a>
     </div>
     <ul>
         <li><a href="#about">About</a></li>
@@ -201,6 +213,23 @@
     <p class="copyright">© 2025 RMS|RyanShuma. All rights reserved.</p>
 </footer>
 
+<!-- CODE PEEK PANEL -->
+    <div class="peek-overlay" id="peekOverlay"></div>
+
+    <div class="peek-panel" id="peekPanel">
+        <div class="peek-header">
+            <span class="peek-title" id="peekTitle">Section Code</span>
+            <button class="peek-close" id="peekClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <p class="peek-description" id="peekDescription"></p>
+        <pre class="peek-code"><code id="peekCode"></code></pre>
+    </div>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
 
     <script src="script.js"></script>
 </body>

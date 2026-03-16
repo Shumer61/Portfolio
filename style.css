@@ -544,6 +544,117 @@ footer ul li a:hover{
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 157, 255, 0.4);
 }
+/* ── CODE PEEK ── */
+.peek-btn{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: linear-gradient(to right, rgb(0,157,255), rgb(255,0,255));
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s ease;
+    opacity: 0.7;
+}
+
+.peek-btn:hover{
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 157, 255, 0.4);
+}
+
+.peek-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.peek-overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.peek-panel{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 480px;
+    max-width: 100vw;
+    height: 100vh;
+    background: #0f0f0f;
+    z-index: 1002;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+}
+
+.peek-panel.active{
+    transform: translateX(0);
+}
+
+.peek-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.peek-title{
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.peek-close{
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+    padding: 0.3rem;
+}
+
+.peek-close:hover{
+    color: white;
+}
+
+.peek-description{
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-left: 3px solid #009dff;
+    padding-left: 1rem;
+}
+
+.peek-code{
+    background: #1a1a1a;
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    overflow-x: auto;
+    flex: 1;
+}
+
+.peek-code code{
+    color: #e0e0e0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    white-space: pre;
+}
 /* ── MEDIA QUERIES ── */
 @media(max-width: 1280px){
     header{

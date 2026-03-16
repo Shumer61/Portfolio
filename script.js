@@ -134,3 +134,122 @@ if(contactForm){
         }
     });
 }
+// ── CODE PEEK ──
+const peekPanel = document.getElementById('peekPanel');
+const peekOverlay = document.getElementById('peekOverlay');
+const peekClose = document.getElementById('peekClose');
+const peekTitle = document.getElementById('peekTitle');
+const peekDescription = document.getElementById('peekDescription');
+const peekCode = document.getElementById('peekCode');
+
+const peekContent = {
+    about: {
+        title: 'Hero Section',
+        description: 'The hero uses CSS Flexbox to centre content horizontally and vertically. The typing effect cycles through phrases using a recursive setTimeout function — each call shows one more letter then schedules the next call, creating the illusion of typing.',
+        code: `.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Entrance animation */
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.about img{
+    animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.info-box{
+    animation: fadeSlideUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+}`
+    },
+    experience: {
+        title: 'Experience Section',
+        description: 'Cards use IntersectionObserver to detect when they enter the viewport. Each card starts invisible and shifted down 40px. When the observer fires, the visible class is added — triggering a CSS transition that fades and lifts each card into position with a staggered delay.',
+        code: `const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if(entry.isIntersecting){
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 150);
+        }
+    });
+}, { threshold: 0.1 });
+
+revealCards.forEach(card => observer.observe(card));`
+    },
+    projects: {
+        title: 'Projects Section',
+        description: 'Project cards use the same IntersectionObserver pattern as the experience cards. The grid uses CSS auto-fill to flow cards automatically based on screen width — no media queries needed for the column count.',
+        code: `.project-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-card.visible{
+    opacity: 1;
+    transform: translateY(0);
+}`
+    },
+    contact: {
+        title: 'Contact Form',
+        description: 'The form intercepts the default submit behaviour using e.preventDefault(). It then sends the data to Formspree in the background using the fetch API with async/await. If the response is successful the form hides and a success message appears — the user never leaves the portfolio.',
+        code: `contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if(response.ok){
+        contactForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+    }
+});`
+    }
+};
+
+function openPeek(section){
+    const content = peekContent[section];
+    peekTitle.textContent = content.title;
+    peekDescription.textContent = content.description;
+    peekCode.textContent = content.code;
+    peekPanel.classList.add('active');
+    peekOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePeek(){
+    peekPanel.classList.remove('active');
+    peekOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.peek-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const section = btn.dataset.section;
+        openPeek(section);
+    });
+});
+
+peekClose.addEventListener('click', closePeek);
+peekOverlay.addEventListener('click', closePeek);
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closePeek();
+});

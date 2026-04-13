@@ -202,6 +202,12 @@ revealCards.forEach(card => observer.observe(card));`
     transform: translateY(0);
 }`
     },
+    'expense-tracker': {
+  title: 'Expense Tracker',
+  code: `// JWT protected route\nrouter.get('/', protect, async (req, res) => {\n  const expenses = await Expense.find({ user: req.userId });\n  res.json(expenses);\n});`,
+  explanation: 'All expense routes are protected by JWT middleware. Every query filters by the logged-in user ID so data is fully isolated per user.'
+},
+
     contact: {
         title: 'Contact Form',
         description: 'The form intercepts the default submit behaviour using e.preventDefault(). It then sends the data to Formspree in the background using the fetch API with async/await. If the response is successful the form hides and a success message appears — the user never leaves the portfolio.',

@@ -203,9 +203,9 @@ revealCards.forEach(card => observer.observe(card));`
 }`
     },
     'expense-tracker': {
-  title: 'Expense Tracker',
-  code: `// JWT protected route\nrouter.get('/', protect, async (req, res) => {\n  const expenses = await Expense.find({ user: req.userId });\n  res.json(expenses);\n});`,
-  explanation: 'All expense routes are protected by JWT middleware. Every query filters by the logged-in user ID so data is fully isolated per user.'
+    title: 'Expense Tracker',
+    description: 'All expense routes are protected by JWT middleware. Every query filters by the logged-in user ID so data is fully isolated per user. The frontend is built in React with JWT tokens stored in localStorage for session persistence.',
+    code: `router.get('/', protect, async (req, res) => {\n    const expenses = await Expense.find({ user: req.userId });\n    res.json(expenses);\n});`
 },
 
     contact: {

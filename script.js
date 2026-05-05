@@ -207,6 +207,23 @@ revealCards.forEach(card => observer.observe(card));`
     description: 'All expense routes are protected by JWT middleware. Every query filters by the logged-in user ID so data is fully isolated per user. The frontend is built in React with JWT tokens stored in localStorage for session persistence.',
     code: `router.get('/', protect, async (req, res) => {\n    const expenses = await Expense.find({ user: req.userId });\n    res.json(expenses);\n});`
 },
+'smartseason': {
+    title: 'SmartSeason',
+    description: 'Role-based access is handled by two separate middleware functions. protect verifies the JWT and attaches the full user to the request. adminOnly then checks the role. Field queries filter by assignedTo for agents so data isolation happens at the database level not just the UI.',
+    code: `// two layers of access control
+const protect = async (req, res, next) => {
+    const token = req.headers.authorization?.split(' ')[1]
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    req.user = await User.findById(decoded.id).select('-password')
+    next()
+}
+
+const adminOnly = (req, res, next) => {
+    if(req.user.role !== 'admin') 
+        return res.status(403).json({ message: 'Admin access required' })
+    next()
+}`
+},
 
     contact: {
         title: 'Contact Form',

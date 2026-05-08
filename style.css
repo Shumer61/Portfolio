@@ -102,7 +102,7 @@ section { min-height: 100vh; padding: 8rem 10%; width: 100%; position: relative;
 
 /* SKILLS SECTION */
 .skills { background: var(--bg); padding-top: 5rem; padding-bottom: 5rem; min-height: auto; }
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 1rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 0.9rem; }
 .skill-card {
     background: var(--glass);
     border: 1px solid var(--glass-border);
